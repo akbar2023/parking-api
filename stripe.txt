@@ -7,3 +7,6 @@ pk_test_51O51uqLH8U7iHbp0vIpYJ13tlRt6NIHscvC8rmX3MyBtYgju8efkFozk42QJF5mqGY61ILf
 Secret Key :
 
 sk_test_51O51uqLH8U7iHbp0Gpvcdn65e5leEzI8vSAJeh0wySmeQHF969kUCgeZfNtUsblEXtyJDXisT8JFiVfKQqcw2sUd00JEihEBdG
+
+
+uvicorn main:app --host 0.0.0.0 --port 10000

@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import uuid 
+from classes.schema_dto import Parking
 
 import routers.router_auth, routers.router_parkings, routers.router_stripe
 

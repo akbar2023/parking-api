@@ -1,8 +1,4 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy import func
-from sqlalchemy.orm import Session
-from classes.database import get_cursor
-from classes import models_orm, schemas_dto
 import utilities
 from typing_extensions import Annotated
 import uuid

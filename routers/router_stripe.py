@@ -33,3 +33,15 @@ async def stripe_checkout():
     return checkout_session
   except Exception as e:
     return str(e) 
+  
+
+@router.post('/webhook')
+  async def webhoook_received(request: Request, stripe_signature)
+
+  
+  
+  
+  
+  
+
+
