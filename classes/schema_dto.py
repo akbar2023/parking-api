@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-import uuid 
 
 class User(BaseModel):
     email: str
@@ -7,20 +6,20 @@ class User(BaseModel):
 
 
 class Parking(BaseModel):
-  id: uuid
-  place_num: int
+  id: str
+  ref_num: int
   is_available: bool
   price_per_hour: float
   lon: float
   lar: float
-  location: str
+  adress: str
 
 
 class ParkingNoId(BaseModel):
-  place_num: int
+  ref_num: int
   is_available: bool
   price_per_hour: float
   lon: float
   lar: float
-  location: str
+  adress: str
 
