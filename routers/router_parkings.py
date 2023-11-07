@@ -24,11 +24,13 @@ parkings = [
 ]
 
 
+
+# GET parkings
 @router.get('/', response_model=list[Parking])
 async def get_parking_places():
   return parkings
 
-
+# CREATE Parkings
 @router.post('/', response_model= Parking, status_code=201)
 async def create_parking_place(givenParking: ParkingNoId):
   newParking = Parking(givenParking)
@@ -36,16 +38,16 @@ async def create_parking_place(givenParking: ParkingNoId):
   parkings.append(newParking)
   return parkings
 
-
-@app.get('/{parking_id}', response_model=Parking)
+# GET BY ID parkings
+@router.get('/{parking_id}', response_model=Parking)
 async def get_parking_by_id(parking_id:str):
   for parking in parkings:
     if parking.id == parking_id:
       return parking
   raise HTTPException(status_code=404,detail="Parking not found") 
 
-
-@app.patch('/{parking_id}/{availability}', status_code=204)
+# PATCH Parking
+@router.patch('/{parking_id}/{availability}', status_code=204)
 async def update_parking_avilability(parking_id:str, availability:bool):
   for parking in parkings:
     if parking.id == parking_id:
@@ -53,7 +55,7 @@ async def update_parking_avilability(parking_id:str, availability:bool):
       return
   raise HTTPException(status_code= 404, detail="Parking not found")
 
-
+# DELETE parking
 @router.delete('/{parking_id}', status_code=204)
 async def delete_student(parking_id:str):
     for parking in parkings:

@@ -24,3 +24,16 @@ class Customer(BaseModel):
 
 class CustomerNoId(BaseModel):
   name: str
+
+
+class Booking(BaseModel):
+    id:str
+    customer_id:str
+    parking_id:str
+    is_booked: bool
+
+
+class BookingNoId(BaseModel):
+    customer_id:str
+    parking_id:str
+    is_booked: bool

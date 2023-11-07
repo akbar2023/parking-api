@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 
 #Routers
-import routers.router_auth, routers.router_parkings, routers.router_stripe
+import routers.router_auth, routers.router_parkings, routers.router_stripe, routers.router_customers, routers.router_bookings
 
 # Documentation
 from documentations.description import api_description
@@ -20,5 +20,7 @@ app = FastAPI(
 app.include_router(routers.router_parkings.router)
 app.include_router(routers.router_auth.router)
 app.include_router(routers.router_stripe.router)
+app.include_router(routers.router_customers.router)
+app.include_router(routers.router_bookings.router)
 
 
