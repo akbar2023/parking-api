@@ -7,19 +7,20 @@ class User(BaseModel):
 
 class Parking(BaseModel):
   id: str
-  ref_num: int
   is_available: bool
   price_per_hour: float
-  lon: float
-  lar: float
   adress: str
 
 
 class ParkingNoId(BaseModel):
-  ref_num: int
   is_available: bool
   price_per_hour: float
-  lon: float
-  lar: float
   adress: str
 
+
+class Customer(BaseModel):
+  id: str
+  name: str
+
+class CustomerNoId(BaseModel):
+  name: str
