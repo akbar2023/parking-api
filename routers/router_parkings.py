@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from typing_extensions import Annotated
 import uuid
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel
