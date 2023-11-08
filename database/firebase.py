@@ -2,11 +2,17 @@ import firebase_admin
 from firebase_admin import credentials
 from configs.firebase_config_example import  firebaseConfig
 import pyrebase
+from dotenv import dotenv_values
+import json
 
-if not firebase_admin._apps:
-  cred = credentials.Certificate("configs/parkingapi-f5d07-firebase-adminsdk-vgm7u-d012307c45.json")
-  firebase_admin.initialize_app(cred)
 
-firebase = pyrebase.initialize_app(firebaseConfig)
+
+config = dotenv_values(".env")
+
+# Initialize Firebase Admin with the service account information
+cred = credentials.Certificate(json.loads(config['FIREBASE_SERVICE_ACCOUNT_KEY']))
+firebase_admin.initialize_app(cred)
+
+firebase = pyrebase.initialize_app(json.loads(config['FIREBASE_CONFIG']))
 db = firebase.database()
 authSession = firebase.auth()

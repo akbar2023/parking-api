@@ -25,8 +25,7 @@ async def create_booking():
 
 @router.post('/')
 async def create_booking(givenBooking:BookingNoId):
-    newbooking= Booking(givenBooking)
-    newbooking.id = str(uuid.uuid4())
+    newbooking= Booking(id=str(uuid.uuid4()), **givenBooking.model_dump())
     bookings.append(newbooking)
     return newbooking
 

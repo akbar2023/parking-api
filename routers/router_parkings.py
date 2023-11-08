@@ -33,10 +33,9 @@ async def get_parking_places():
 # CREATE Parkings
 @router.post('/', response_model= Parking, status_code=201)
 async def create_parking_place(givenParking: ParkingNoId):
-  newParking = Parking(givenParking)
-  newParking.id = str(uuid.uuid4())
+  newParking = Parking(id=str(uuid.uuid4()),**givenParking.model_dump())
   parkings.append(newParking)
-  return parkings
+  return newParking
 
 # GET BY ID parkings
 @router.get('/{parking_id}', response_model=Parking)
@@ -57,7 +56,7 @@ async def update_parking_avilability(parking_id:str, availability:bool):
 
 # DELETE parking
 @router.delete('/{parking_id}', status_code=204)
-async def delete_student(parking_id:str):
+async def delete_parking(parking_id:str):
     for parking in parkings:
         if parking.id == parking_id:
             parkings.remove(parking)

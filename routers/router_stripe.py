@@ -24,12 +24,13 @@ async def stripe_checkout():
                 {
                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
                     'price': 'price_1O51yeLH8U7iHbp0pw4GJ2qj',
+                    'quantity': 1
                 },
             ],
             mode='subscription',
             payment_method_types=['card'],
-            success_url=YOUR_DOMAIN + '/stripe/success', # à modif par u noveau endpoint pour ajouter le success -> webhook
-            cancel_url=YOUR_DOMAIN + '/stripe/cancel',
+            success_url=YOUR_DOMAIN + '/stripe/success.html', # à modif par u noveau endpoint pour ajouter le success -> webhook
+            cancel_url=YOUR_DOMAIN + '/stripe/cancel.html',
             # client_reference_id= "client_reference_id102312301230",
         )
         # return checkout_session
