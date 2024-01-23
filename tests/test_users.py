@@ -12,8 +12,7 @@ def test_create_user_success():
     })
     assert res.status_code == 201 
 
-# define test_create_user_conflict()
-# res.status_code == 409    
+# define test_create_user_conflict()  
 
 def test_create_user_conflict(create_user):
     res = client.post("/auth/signup", json={

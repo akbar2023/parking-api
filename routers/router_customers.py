@@ -25,6 +25,7 @@ customers = [
 @router.get('/', response_model=List[Customer])
 async def get_customers(userData: int = Depends(get_current_user)):
     fireBaseobject = db.child("users").child(userData['uid']).child('customer').get(userData['idToken']).val()
+    if fireBaseobject == None : return []
     resultArray = [value for value in fireBaseobject.values()]
     return resultArray
 
