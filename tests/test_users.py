@@ -3,8 +3,8 @@ from main import app
 from firebase_admin import auth
 import pytest
 
-client = TestClient(app)
 
+client = TestClient(app)
 
 def test_create_user_success():
     res = client.post("/auth/signup", json={
