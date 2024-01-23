@@ -24,11 +24,3 @@ def create_user():
     user_credential = client.post("/auth/signup", json={
         "email": "test.user2@gmail.com", 'password': "password"
     })
-
-@pytest.fixture
-def auth_user(create_user):
-    user_credential = client.post("auth/login", data={
-        "username": "test.user2@gmail.com",
-        "password": "password",
-    })
-    return user_credential.json()
