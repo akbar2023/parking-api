@@ -16,7 +16,6 @@ uvicorn main:app --reload
 ## Lancement des tests :
 ```
 pytest
--s
--v
+-v, --verbose         Increase verbosity
 
 ```
