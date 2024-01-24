@@ -8,7 +8,7 @@ client = TestClient(app)
 
 
 # Test create parking success
-def test_create_parking_success():
+def test_post_parking_success():
   res = client.post("/parkings", json={
   "is_available": 'true',
   "price_per_hour": '4.99',
@@ -18,7 +18,7 @@ def test_create_parking_success():
 
 
 # Test create parking error
-def test_create_parking_error():
+def test_post_parking_error():
   res = client.post("/parkings", json={
   "price_per_hour": '4.99',
   "adress": "10 rue manin 75019 Paris"
